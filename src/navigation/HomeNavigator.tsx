@@ -4,6 +4,7 @@ import AppTheme from '@styles/theme';
 import BottomTabNavigator from './BottomTabNavigator';
 import CreateForm from '@src/screens/create';
 import ListScreen from '@src/screens/create/list';
+import HomeScreen from '@src/screens/home';
 
 type RootStackParamList = {
   Home: undefined;
@@ -29,11 +30,9 @@ function HomeNavigator(): JSX.Element {
       }}>
       <RootStack.Screen
         name="Home"
-        component={BottomTabNavigator}
+        component={HomeScreen}
         options={{headerShown: false}}
       />
-      <RootStack.Screen name="Create" component={CreateForm} />
-      <RootStack.Screen name="Category" component={ListScreen} />
     </RootStack.Navigator>
   );
 }
