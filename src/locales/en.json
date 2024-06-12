@@ -1,0 +1,14 @@
+{
+  "LOGIN": {
+    "LOGIN_BTN": "Login",
+    "ERRORS": {
+      "EMPTY_EMAIL": "Email is required",
+      "INVALID_EMAIL": "Please enter valid email",
+      "EMPTY_PASSWORD": "Password is required",
+      "INVALID_PASSWORD": "Password must be at least 8 characters"
+    }
+  },
+  "HOME": {
+    "LOGOUT_BTN": "Logout"
+  }
+}
