@@ -14,6 +14,8 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
+import { TamaguiProvider, createTamagui } from '@tamagui/core'
+import { config } from '@tamagui/config/v3'
 
 import AppContainer from '@src/index';
 import {store, persistor} from '@redux/store';
@@ -25,7 +27,11 @@ function App(): JSX.Element {
     backgroundColor: AppTheme.colors.primary,
   };
 
+  const tamaguiConfig = createTamagui(config)
+
+
   return (
+    <TamaguiProvider config={tamaguiConfig}>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
@@ -37,6 +43,7 @@ function App(): JSX.Element {
         </SafeAreaProvider>
       </PersistGate>
     </Provider>
+    </TamaguiProvider>
   );
 }
 

@@ -9,6 +9,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
+import java.util.Arrays; // add this import
+import com.bucket.list.SettingsPackage; // ensure this import is correct
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -23,8 +25,8 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
-          // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
+          // Add manually the SettingsPackage
+          packages.add(new SettingsPackage());
           return packages;
         }
 
