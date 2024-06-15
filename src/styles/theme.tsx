@@ -1,6 +1,6 @@
 const AppTheme = {
   colors: {
-    primary: '#f93269',
+    primary: '#DC143C',
     secondary: '#483952',
     light: '#fbffff',
     blue: '#0596fb',
@@ -10,6 +10,7 @@ const AppTheme = {
     disabled: '#C9D3D9',
     placeHolderTextColor: '#F6F8F9',
     textPrimary: '#333333',
+    grayDarkTextColor: '#808080',
   },
 };
 

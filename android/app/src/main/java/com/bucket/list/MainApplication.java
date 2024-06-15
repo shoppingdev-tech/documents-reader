@@ -11,7 +11,7 @@ import com.facebook.soloader.SoLoader;
 import java.util.List;
 import java.util.Arrays; // add this import
 import com.bucket.list.SettingsPackage; // ensure this import is correct
-
+import com.oblador.vectoricons.VectorIconsPackage;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -27,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Add manually the SettingsPackage
           packages.add(new SettingsPackage());
+          packages.add(new VectorIconsPackage());
           return packages;
         }
 
