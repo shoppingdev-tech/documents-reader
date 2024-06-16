@@ -1,15 +1,12 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import AppTheme from '@styles/theme';
-import BottomTabNavigator from './BottomTabNavigator';
-import CreateForm from '@src/screens/create';
-import ListScreen from '@src/screens/create/list';
 import HomeScreen from '@src/screens/home';
+import FileView from '@src/screens/fileView';
 
 type RootStackParamList = {
   Home: undefined;
-  Create: undefined;
-  Category: undefined;
+  FileView: undefined;
 };
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -20,17 +17,16 @@ function HomeNavigator(): JSX.Element {
   return (
     <RootStack.Navigator
       screenOptions={{
-        headerBackTitleVisible: false,
-        headerMode: 'screen',
-        headerStyle: backgroundStyle,
-        headerTitleStyle: {
-          color: AppTheme.colors.white,
-        },
-        headerTintColor: AppTheme.colors.white,
+        headerShown: false
       }}>
       <RootStack.Screen
         name="Home"
         component={HomeScreen}
+        options={{headerShown: false}}
+      />
+        <RootStack.Screen
+        name="FileView"
+        component={FileView}
         options={{headerShown: false}}
       />
     </RootStack.Navigator>

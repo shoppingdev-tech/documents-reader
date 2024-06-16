@@ -1,6 +1,9 @@
 const AppTheme = {
   colors: {
     primary: '#DC143C',
+    excel: '#217346',
+    word: '#2B579A',
+    pp: '#D24726',
     secondary: '#483952',
     light: '#fbffff',
     blue: '#0596fb',
