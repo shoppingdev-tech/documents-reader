@@ -26,7 +26,7 @@ const Header = ({
         />
       )}
       <Text color={"$white"} fontWeight={"bold"} fontSize={18}>
-        File Reader
+        PDF Reader
       </Text>
     </YStack>
   );

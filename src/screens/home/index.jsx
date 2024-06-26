@@ -5,7 +5,7 @@ import { YStack, XStack, Text } from "tamagui";
 import { StatusBar } from "react-native";
 import AppTheme from "@src/styles/theme";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-// import SettingsModule from "./SettingsModule";
+import SettingsModule from "./SettingsModule";
 import RNFS from "react-native-fs";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import FileViewer from 'react-native-file-viewer';
@@ -69,63 +69,64 @@ const App = ({navigation}) => {
       const fetchedFiles = await getAllFiles();
       setFiles(fetchedFiles);
     };
+    // console.log('SettingsModule', SettingsModule.openManageAllFilesAccessSettings());
+    // SettingsModule.o
     getFiles();
   }, []);
 
 
   const FirstRoute = () => (
     <View>
-      <Item files={files} type="pdf" index={index} />
+      <Item files={files} type="pdf" />
     </View>
   );
 
-  const SecondRoute = () => (
-    <View>
-      <Item files={files} type="excel" index={index} />
-    </View>
-  );
-  const ThirdRoute = () => (
-    <View>
-      <Item files={files} type="word" index={index} />
-    </View>
-  );
+  // const SecondRoute = () => (
+  //   <View>
+  //     <Item files={files} type="excel" index={index} />
+  //   </View>
+  // );
+  // const ThirdRoute = () => (
+  //   <View>
+  //     <Item files={files} type="word" index={index} />
+  //   </View>
+  // );
 
-  const FourthRoute = () => (
-    <View>
-      <Item files={files} type="pp" index={index} />
-    </View>
-  );
+  // const FourthRoute = () => (
+  //   <View>
+  //     <Item files={files} type="pp" index={index} />
+  //   </View>
+  // );
 
-  const renderScene = SceneMap({
-    pdf: FirstRoute,
-    excel: SecondRoute,
-    word: ThirdRoute,
-    pp: FourthRoute,
-  });
+  // const renderScene = SceneMap({
+  //   pdf: FirstRoute,
+  //   excel: SecondRoute,
+  //   word: ThirdRoute,
+  //   pp: FourthRoute,
+  // });
 
-  const layout = useWindowDimensions();
+  // const layout = useWindowDimensions();
 
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: "pdf", title: "PDF" },
-    { key: "excel", title: "Excel" },
-    { key: "word", title: "Word" },
-    { key: "pp", title: "PP" },
-  ]);
+  // const [index, setIndex] = React.useState(0);
+  // const [routes] = React.useState([
+  //   { key: "pdf", title: "PDF" },
+  //   { key: "excel", title: "Excel" },
+  //   { key: "word", title: "Word" },
+  //   { key: "pp", title: "PP" },
+  // ]);
 
-  const renderTabBar = (props) => (
-    <TabBar {...props} style={{ backgroundColor: backgroundColor }} indicatorStyle={{ backgroundColor: AppTheme.colors.white }} />
-  );
-  const currentTabIndex = routes[index].key;
+  // const renderTabBar = (props) => (
+  //   <TabBar {...props} style={{ backgroundColor: backgroundColor }} indicatorStyle={{ backgroundColor: AppTheme.colors.white }} />
+  // );
+  // const currentTabIndex = routes[index].key;
   let backgroundColor = AppTheme.colors.primary;
-  if (currentTabIndex == "excel") {
-    backgroundColor = AppTheme.colors.excel;
-  } else if (currentTabIndex == "word") {
-    backgroundColor = AppTheme.colors.word;
-  } else if (currentTabIndex == "pp") {
-    backgroundColor = AppTheme.colors.pp;
-  }
-  console.log('files', files);
+  // if (currentTabIndex == "excel") {
+  //   backgroundColor = AppTheme.colors.excel;
+  // } else if (currentTabIndex == "word") {
+  //   backgroundColor = AppTheme.colors.word;
+  // } else if (currentTabIndex == "pp") {
+  //   backgroundColor = AppTheme.colors.pp;
+  // }
 
   const Item = ({ files, type }) => {
     let filteredFiles = files.filter(file => file.name.endsWith('.pdf'));
@@ -151,7 +152,7 @@ const App = ({navigation}) => {
           filteredFiles.map((file) => {
             return (
               <XStack
-                key={index}
+                // key={index}
                 padding="$4"
                 space="$2"
                 borderBottomWidth="$1"
@@ -202,13 +203,14 @@ const App = ({navigation}) => {
     <YStack flex={1} backgroundColor={"$snow"}>
       <StatusBar backgroundColor={backgroundColor} />
       <Header backgroundColor={backgroundColor} />
-      <TabView
+      <FirstRoute />
+      {/* <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={{ width: layout.width }}
         renderTabBar={renderTabBar}
-      />
+      /> */}
     </YStack>
   );
 };
